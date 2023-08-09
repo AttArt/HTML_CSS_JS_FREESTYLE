@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="skyOfstar.css">
+    <title>SKY</title>
+</head>
+<body>
+    <div class="container-sky"></div>
+    <!-- <div class="star-s start-eff"></div>
+    <div class="star-b start-eff"></div>
+    <div class="star-c start-eff"></div>
+    <div class="star-k start-eff"></div>
+    <div class="star-bi start-eff"></div> -->
+</body>
+<script>
+
+    const sky = document.querySelector('.container-sky');
+    let positionY, positionX, size, wipp;
+    let color = ['#009fff', '#ff8b04', '#d6639e', '#fff', '#fff', '#fff', '#fff']
+
+    const Star = (classStar, positionY, positionX, sizeW, sizeH, wipp, color, padding) => {
+
+        let starX = document.createElement('div')
+        starX.classList += classStar;
+        starX.style =  "top:"+ positionY +"%;\
+                        left:"+ positionX +"%;\
+                        width:"+ sizeW +"px;\
+                        height:"+ sizeH +"px; \
+                        --wip-spa: " + wipp + "s ;\
+                        padding:" + padding + "px;\
+                        --start-color: " + color + ";"
+
+        sky.appendChild(starX);
+
+    }
+
+    
+    for(let i=0; i<1777; i++) {
+
+        positionY = Math.random() * 99;
+        positionX = Math.random() * 99;
+        sizeW = ( Math.random() * 6) / 10;
+        sizeH = ( Math.random() * 6) / 10;
+
+        wipp = ( Math.floor(Math.random() * 28) + 8 ) / 10;
+        
+        Star(' star start-eff wipp ', positionY, positionX, sizeW, sizeH, wipp, color[( Math.floor(Math.random() * 6) )], .7)
+ 
+    }
+
+    Star(' star s start-eff ', 77, 77, 1.777, 1.777, 0, '#009fff', .5)
+    Star(' star b start-eff ', 33, 33, 1.9, 1.777, 0, '#ff8b04', .7)
+    Star(' star c start-eff ', 88, 10, 1.2, 1.7, 0, '#d6639e', .7)
+    Star(' star k start-eff ', 20, 89, 1.8, 1.2, 0, '#fff', .7)
+ 
+
+</script>
+</html>
